@@ -7,12 +7,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  // TabController myTabController = TabController(length: 4, vsync: this);
+  late TabController myTabController;
 
   @override
   void initState() {
     super.initState();
     print("INITTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+    myTabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -47,28 +48,58 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         ],
-        // bottom: TabBar(
-        //   tabs: [
-        //     Text(
-        //       "Hola",
-        //     ),
-        //     Text(
-        //       "Hola",
-        //     ),
-        //     Text(
-        //       "Hola",
-        //     ),
-        //     Text(
-        //       "Hola",
-        //     ),
-        //   ],
-        // ),
+        bottom: TabBar(
+          controller: myTabController,
+          indicatorColor: Colors.white,
+          indicatorWeight: 3.5,
+          // isScrollable: true,
+          // indicatorPadding:
+          //     EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
+          labelColor: Colors.white,
+          labelStyle: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 14.0,
+          ),
+          unselectedLabelColor: Colors.white70,
+          tabs: [
+            Tab(
+              // text: "Hola",
+              icon: Icon(
+                Icons.people,
+              ),
+            ),
+            Tab(
+              text: "CHATS",
+            ),
+            Tab(text: "STATUS"),
+            Tab(
+              text: "CALLS",
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(
           Icons.message,
         ),
+      ),
+      body: TabBarView(
+        controller: myTabController,
+        children: [
+          Text(
+            "Comunidad",
+          ),
+          Text(
+            "Chats",
+          ),
+          Text(
+            "Status",
+          ),
+          Text(
+            "Calls",
+          ),
+        ],
       ),
     );
   }
