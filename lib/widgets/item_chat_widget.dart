@@ -13,7 +13,10 @@ class ItemChatWidget extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ChatDetailPage(),
+            builder: (context) => ChatDetailPage(
+              image: dataChat.avatar,
+              name: dataChat.name,
+            ),
           ),
         );
       },

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ChatDetailPage extends StatelessWidget {
+  String image;
+  String name;
+  ChatDetailPage({
+    required this.image,
+    required this.name,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,16 +22,17 @@ class ChatDetailPage extends StatelessWidget {
           children: [
             CircleAvatar(
               backgroundColor: Colors.white12,
+              backgroundImage: NetworkImage(image),
             ),
             const SizedBox(
-              width: 4.0,
+              width: 7.0,
             ),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Fiorella Montes Arias Guadalupe",
+                    name,
                     style: TextStyle(
                       fontSize: 16.0,
                     ),

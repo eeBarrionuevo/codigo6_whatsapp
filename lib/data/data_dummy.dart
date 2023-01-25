@@ -5,8 +5,8 @@ class DataDummy {
     ChatModel(
       avatar:
           "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      name: "He llegado un poco tarde",
-      message: "Juan Ramos Torres",
+      name: "Juan Ramos Torres",
+      message: "He llegado un poco tarde",
       time: "123",
       date: "1231/1222",
       isTyping: false,
