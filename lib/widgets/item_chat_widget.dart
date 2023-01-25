@@ -1,7 +1,8 @@
+import 'package:codigo6_whatsapp/models/chat_model.dart';
 import 'package:flutter/material.dart';
 
 class ItemChatWidget extends StatelessWidget {
-  Map<String, dynamic> dataChat;
+  ChatModel dataChat;
   ItemChatWidget({required this.dataChat});
 
   @override
@@ -11,16 +12,16 @@ class ItemChatWidget extends StatelessWidget {
         leading: CircleAvatar(
           backgroundColor: Colors.black12,
           radius: 22,
-          backgroundImage: NetworkImage(dataChat["avatar"]),
+          backgroundImage: NetworkImage(dataChat.avatar),
         ),
         title: Text(
-          dataChat["name"],
+          dataChat.name,
           style: TextStyle(
             fontWeight: FontWeight.w500,
           ),
         ),
         subtitle: Text(
-          dataChat["message"],
+          dataChat.message,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -28,7 +29,7 @@ class ItemChatWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              dataChat["time"],
+              dataChat.time,
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 13.0,

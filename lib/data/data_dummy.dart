@@ -9,6 +9,8 @@ class DataDummy {
       message: "Juan Ramos Torres",
       time: "123",
       date: "1231/1222",
+      isTyping: false,
+      countMessage: 3,
     ),
     ChatModel(
       avatar:
@@ -17,6 +19,8 @@ class DataDummy {
       message: "Hola, enviame el link de la clase",
       time: "12:40",
       date: "12/12",
+      isTyping: true,
+      countMessage: 0,
     ),
     ChatModel(
       avatar:
@@ -25,6 +29,8 @@ class DataDummy {
       message: "Ya he enviado todos los trabajos",
       time: "11:50",
       date: "04/10",
+      isTyping: false,
+      countMessage: 0,
     ),
     ChatModel(
       avatar:
@@ -33,6 +39,8 @@ class DataDummy {
       message: "Dónde estas? Por favor no tardes mucho",
       time: "07:05",
       date: "12:07",
+      isTyping: true,
+      countMessage: 7,
     ),
     // {
     //   "avatar":
