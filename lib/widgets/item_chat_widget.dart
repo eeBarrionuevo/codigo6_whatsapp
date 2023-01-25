@@ -1,4 +1,5 @@
 import 'package:codigo6_whatsapp/models/chat_model.dart';
+import 'package:codigo6_whatsapp/pages/chat_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class ItemChatWidget extends StatelessWidget {
@@ -7,37 +8,62 @@ class ItemChatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Colors.black12,
-          radius: 22,
-          backgroundImage: NetworkImage(dataChat.avatar),
-        ),
-        title: Text(
-          dataChat.name,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
+    return ListTile(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatDetailPage(),
           ),
+        );
+      },
+      leading: CircleAvatar(
+        backgroundColor: Colors.black12,
+        radius: 22,
+        backgroundImage: NetworkImage(dataChat.avatar),
+      ),
+      title: Text(
+        dataChat.name,
+        style: const TextStyle(
+          fontWeight: FontWeight.w500,
         ),
-        subtitle: Text(
-          dataChat.message,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Text(
+        dataChat.isTyping ? "typing..." : dataChat.message,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          color: dataChat.isTyping ? Color(0xff10CE5F) : Colors.black54,
         ),
-        trailing: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              dataChat.time,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 13.0,
-                color: Colors.black54,
-              ),
+      ),
+      trailing: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            dataChat.time,
+            style: const TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 13.0,
+              color: Colors.black54,
             ),
-          ],
-        ),
+          ),
+          dataChat.countMessage > 0
+              ? Container(
+                  padding: const EdgeInsets.all(6.0),
+                  decoration: const BoxDecoration(
+                    color: Color(0xff10CE5F),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    dataChat.countMessage.toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                )
+              : const SizedBox(),
+        ],
       ),
     );
   }

@@ -10,7 +10,7 @@ class ChatPage extends StatelessWidget {
     return ListView.builder(
       itemCount: mandarina.chats.length,
       itemBuilder: (BuildContext context, int index) {
-        print(mandarina.chats[index]);
+        // print(mandarina.chats[index]);
         return ItemChatWidget(
           dataChat: mandarina.chats[index],
         );
