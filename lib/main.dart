@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       title: "WhatsApp",
       theme: ThemeData(
         // brightness: Brightness.light,
-
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "Manrope",
         appBarTheme: AppBarTheme(
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Color(0xff10CE5F),
         ),
-
         // useMaterial3: true,
       ),
       home: HomePage(),
