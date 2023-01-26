@@ -76,18 +76,14 @@ class ChatDetailPage extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           ListView.builder(
-            itemCount: 30,
+            itemCount: 1000,
             itemBuilder: (BuildContext context, int index) {
               return Align(
-                alignment: Alignment.centerRight,
+                alignment: Alignment.centerLeft,
                 child: Container(
-                  // padding: const EdgeInsets.symmetric(
-                  //   horizontal: 12.0,
-                  //   vertical: 10.0,
-                  // ),
                   margin: const EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    color: const Color(0xffE7FFDC),
+                  decoration: const BoxDecoration(
+                    color: Color(0xffE7FFDC),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10),
