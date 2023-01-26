@@ -1,13 +1,18 @@
+import 'package:codigo6_whatsapp/data/data_dummy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class ChatDetailPage extends StatelessWidget {
   String image;
   String name;
+
   ChatDetailPage({
     required this.image,
     required this.name,
   });
+
+  DataDummy mandarina = DataDummy();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,14 +81,19 @@ class ChatDetailPage extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           ListView.builder(
-            itemCount: 1000,
+            itemCount: mandarina.messages.length,
             itemBuilder: (BuildContext context, int index) {
+              // print(mandarina.messages[index].type);
               return Align(
-                alignment: Alignment.centerLeft,
+                alignment: mandarina.messages[index].type == "me"
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: Container(
                   margin: const EdgeInsets.all(6.0),
-                  decoration: const BoxDecoration(
-                    color: Color(0xffE7FFDC),
+                  decoration: BoxDecoration(
+                    color: mandarina.messages[index].type == "me"
+                        ? Color(0xffE7FFDC)
+                        : Colors.white,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10),
@@ -102,11 +112,11 @@ class ChatDetailPage extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.alphabetic,
-                          children: const [
+                          children: [
                             Text(
-                              "Hola, cómo te encuentras?",
+                              mandarina.messages[index].message,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 50.0,
                             ),
                           ],

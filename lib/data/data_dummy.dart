@@ -69,7 +69,7 @@ class DataDummy {
     // },
   ];
 
-  List messages = [
+  List<MessageModel> messages = [
     MessageModel(
       message: "Hola",
       type: "other",
