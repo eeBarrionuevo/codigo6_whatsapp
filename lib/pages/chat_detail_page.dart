@@ -106,29 +106,37 @@ class ChatDetailPage extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.alphabetic,
-                          children: [
+                          children: const [
                             Text(
                               "Hola, cómo te encuentras?",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color: Colors.black45,
-                              ),
                             ),
                             SizedBox(
-                              width: 22.0,
+                              width: 50.0,
                             ),
                           ],
                         ),
                       ),
                       Positioned(
-                        bottom: 3,
-                        right: 6,
-                        child: Text(
-                          "12:30",
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            color: Colors.black45,
-                          ),
+                        bottom: 5,
+                        right: 8,
+                        child: Row(
+                          children: const [
+                            Text(
+                              "12:30",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: Colors.black45,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.0,
+                            ),
+                            Icon(
+                              Icons.check,
+                              size: 13,
+                              color: Color(0xff53BDEB),
+                            ),
+                          ],
                         ),
                       ),
                     ],
