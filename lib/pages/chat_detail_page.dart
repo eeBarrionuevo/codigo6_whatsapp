@@ -72,41 +72,48 @@ class ChatDetailPage extends StatelessWidget {
         ],
       ),
       body: Stack(
-        alignment: Alignment.center,
         clipBehavior: Clip.none,
         children: [
-          Container(
-            height: 200,
-            width: 200,
-            color: Colors.amber,
-          ),
-          Positioned(
-            bottom: -50,
-            right: -50,
-            child: Container(
-              height: 150,
-              width: 150,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 20,
-            left: 20,
-            child: Container(
-              height: 70,
-              width: 70,
-              color: Colors.green,
-            ),
+          ListView.builder(
+            itemCount: 30,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                height: 60,
+                margin: const EdgeInsets.all(6.0),
+                color: Colors.black12,
+              );
+            },
           ),
           Align(
-            alignment: Alignment.topRight,
+            alignment: Alignment.bottomCenter,
             child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.indigo,
+              height: 60,
+              width: double.infinity,
+              color: Colors.red,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: "Message",
+                        prefixIcon: Icon(
+                          Icons.sentiment_satisfied_alt,
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 0,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(),
+                ],
+              ),
             ),
           ),
         ],
