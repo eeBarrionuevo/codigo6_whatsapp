@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class ChatDetailPage extends StatelessWidget {
   String image;
@@ -66,6 +67,46 @@ class ChatDetailPage extends StatelessWidget {
             onPressed: () {},
             icon: Icon(
               Icons.more_vert,
+            ),
+          ),
+        ],
+      ),
+      body: Stack(
+        alignment: Alignment.center,
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            height: 200,
+            width: 200,
+            color: Colors.amber,
+          ),
+          Positioned(
+            bottom: -50,
+            right: -50,
+            child: Container(
+              height: 150,
+              width: 150,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: Container(
+              height: 70,
+              width: 70,
+              color: Colors.green,
+            ),
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.indigo,
             ),
           ),
         ],
