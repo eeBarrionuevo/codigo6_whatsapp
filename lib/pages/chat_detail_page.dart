@@ -11,6 +11,7 @@ class ChatDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffE9E1D8),
       appBar: AppBar(
         leadingWidth: 20,
         // leading: IconButton(
@@ -77,19 +78,73 @@ class ChatDetailPage extends StatelessWidget {
           ListView.builder(
             itemCount: 30,
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                height: 60,
-                margin: const EdgeInsets.all(6.0),
-                color: Colors.black12,
+              return Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  // padding: const EdgeInsets.symmetric(
+                  //   horizontal: 12.0,
+                  //   vertical: 10.0,
+                  // ),
+                  margin: const EdgeInsets.all(6.0),
+                  decoration: BoxDecoration(
+                    color: const Color(0xffE7FFDC),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(0),
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12.0,
+                          vertical: 10.0,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              "Hola, cómo te encuentras?",
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.black45,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 22.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 3,
+                        right: 6,
+                        child: Text(
+                          "12:30",
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.black45,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               );
             },
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 60,
+              margin: const EdgeInsets.symmetric(
+                horizontal: 8.0,
+                vertical: 7.0,
+              ),
               width: double.infinity,
-              color: Colors.red,
               child: Row(
                 children: [
                   Expanded(
@@ -98,20 +153,59 @@ class ChatDetailPage extends StatelessWidget {
                         filled: true,
                         fillColor: Colors.white,
                         hintText: "Message",
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.sentiment_satisfied_alt,
+                          color: Color(0xff8796A2),
                         ),
-                        contentPadding: EdgeInsets.symmetric(
+                        suffixIcon: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(
+                              Icons.attach_file_outlined,
+                              color: Color(0xff8796A2),
+                            ),
+                            SizedBox(
+                              width: 16,
+                            ),
+                            Icon(
+                              Icons.camera_alt_rounded,
+                              color: Color(0xff8796A2),
+                            ),
+                            SizedBox(
+                              width: 16,
+                            ),
+                          ],
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
                           horizontal: 0,
+                          vertical: 14.0,
                         ),
                         focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                           borderSide: BorderSide.none,
                         ),
                       ),
                     ),
                   ),
-                  Container(),
+                  const SizedBox(
+                    width: 8.0,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: const BoxDecoration(
+                      color: Color(0xff00A884),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.mic,
+                      size: 30.0,
+                      color: Colors.white,
+                    ),
+                  ),
                 ],
               ),
             ),
