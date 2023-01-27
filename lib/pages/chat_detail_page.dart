@@ -2,7 +2,7 @@ import 'package:codigo6_whatsapp/data/data_dummy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class ChatDetailPage extends StatelessWidget {
+class ChatDetailPage extends StatefulWidget {
   String image;
   String name;
 
@@ -11,7 +11,13 @@ class ChatDetailPage extends StatelessWidget {
     required this.name,
   });
 
+  @override
+  State<ChatDetailPage> createState() => _ChatDetailPageState();
+}
+
+class _ChatDetailPageState extends State<ChatDetailPage> {
   DataDummy mandarina = DataDummy();
+  bool isTyping = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class ChatDetailPage extends StatelessWidget {
           children: [
             CircleAvatar(
               backgroundColor: Colors.white12,
-              backgroundImage: NetworkImage(image),
+              backgroundImage: NetworkImage(widget.image),
             ),
             const SizedBox(
               width: 7.0,
@@ -39,7 +45,7 @@ class ChatDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    widget.name,
                     style: TextStyle(
                       fontSize: 16.0,
                     ),
@@ -92,9 +98,9 @@ class ChatDetailPage extends StatelessWidget {
                   margin: const EdgeInsets.all(6.0),
                   decoration: BoxDecoration(
                     color: mandarina.messages[index].type == "me"
-                        ? Color(0xffE7FFDC)
+                        ? const Color(0xffE7FFDC)
                         : Colors.white,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(10),
                       bottomRight: Radius.circular(10),
                       topLeft: Radius.circular(10),
@@ -203,21 +209,34 @@ class ChatDetailPage extends StatelessWidget {
                           borderSide: BorderSide.none,
                         ),
                       ),
+                      onChanged: (String value) {
+                        if (value.isNotEmpty) {
+                          isTyping = true;
+                        } else {
+                          isTyping = false;
+                        }
+                        setState(() {});
+                      },
                     ),
                   ),
                   const SizedBox(
                     width: 8.0,
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(10.0),
-                    decoration: const BoxDecoration(
-                      color: Color(0xff00A884),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.mic,
-                      size: 30.0,
-                      color: Colors.white,
+                  GestureDetector(
+                    onTap: () {
+                      print("Hola");
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(10.0),
+                      decoration: const BoxDecoration(
+                        color: Color(0xff00A884),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        isTyping ? Icons.send : Icons.mic,
+                        size: 28.0,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
